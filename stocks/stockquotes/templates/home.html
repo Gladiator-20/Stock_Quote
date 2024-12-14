@@ -1,0 +1,55 @@
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Hello World!</h1>
+<br>
+<br>
+
+<br>
+
+<!-- {{fin}}<br><br> -->
+
+
+<br><br>
+
+<!-- stock's logo : <img src="{{ url }}" alt="Descriptive Alt Text" /> -->
+
+<br><br>
+
+<!-- stock's country : {{fin.country}}<br><br>
+stock's currency : {{fin.currency}}<br><br>
+stock's estimateCurrency : {{fin.estimateCurrency}}<br><br>
+stock's exchange : {{fin.exchange}}<br><br>
+stock's finnhubIndustry : {{fin.finnhubIndustry}}<br><br>
+stock's ipo : {{fin.ipo}}<br><br>
+
+stock's logo : {{fin.logo}}<br><br>
+stock's marketCapitalization : {{fin.marketCapitalization}}<br><br>
+stock's name : {{fin.name}}<br><br>
+stock's phone : {{fin.phone}}<br><br>
+stock's shareOutstandingticker : {{fin.shareOutstandingticker}}<br><br>
+stock's ticker : {{fin.ticker}}<br><br>
+stock's weburl : {{fin.weburl}}<br><br> -->
+
+
+
+{% if fin %}
+
+	{% if fin == "Error..." %}
+			There was a problem with your ticker symbol,
+			please try again.....
+	{% else %}
+		<br><h1>{{fin.name}}</h1><br>
+		<br>
+		{% for key, value in fin.items %}
+			company's {{key}} : {{value}} <br>
+		{% endfor %}		
+		
+	{% endif %}
+{% endif %}
+
+ <br> <br> <br> <br> <br> <br> <br>
+
+{% endblock %}
